@@ -10,17 +10,20 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <aside>
-        <div>
-            <h1>Search for a City</h1>
-            <input type="text" name="City Name">
-            <div id="searchHistory">
-                <!-- past city searches go here -->
-            </div>
-        </div>
-    </aside>
+  
 
     <main>
+        <aside>
+            <div>
+                <h1>Search for a City</h1>
+                <input id="textBox" type="text" placeholder="City Name" name="City SearchBox">
+                <button id="searchBtn">Click to Search</button>
+                <div id="searchHistory">
+                    <!-- past city searches go here -->
+                </div>
+            </div>
+        </aside>
+
         <div id="currentForcast">
             <h1>Current Day</h1><!-- current city forcast info goes here -->
         </div>
@@ -42,8 +45,11 @@
             <section class="future" id="day5">
                 <!-- day 5 future forcast goes here -->
             </section>
-
-
         </div>
+
+     
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+        <script type="text/javascript" src="assets/script.js"></script>
     </main>
 </html>
