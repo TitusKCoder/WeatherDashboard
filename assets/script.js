@@ -1,18 +1,18 @@
-// Assign elements to global variables
+
+$(document).ready(function(){
+// Assign global variables 
 let searchBtn = $("#searchBtn");
+let searchBox = $(".SearchBox")
 let textBox = $("#textBox");
 let currentDay = $("#currentForcast");
 let futureForcast = $("#futureForcast");
 let searchHistory = $("#searchHistory");
-
-
-
-$(document).ready(function(){
-
+console.log("ready")
+console.log(textBox.val())
 // Add click event for city search
-searchBtn.click = function() {
+searchBtn.click(function() {
     let input = textBox.val();
-    console.log("worked");
-};
+
+})
 
 })

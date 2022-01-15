@@ -4,25 +4,27 @@
         <title>Weather Dashboard</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+        <script type="text/javascript" src="assets/script.js"></script>
     </head>
 
     <header>
         <h1>Weather Dashboard</h1>
     </header>
 
-  
-
     <main>
-        <aside>
-            <div>
+        <body>
+        
+            <div class="SearchBox">
                 <h1>Search for a City</h1>
-                <input id="textBox" type="text" placeholder="City Name" name="City SearchBox">
+                <input id="textBox" type="text" placeholder="City Name" >
                 <button id="searchBtn">Click to Search</button>
                 <div id="searchHistory">
                     <!-- past city searches go here -->
                 </div>
             </div>
-        </aside>
+        
 
         <div id="currentForcast">
             <h1>Current Day</h1><!-- current city forcast info goes here -->
@@ -48,8 +50,9 @@
         </div>
 
      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
-        <script type="text/javascript" src="assets/script.js"></script>
+        <script type="text/javascript" src="assets/script.js"></script> -->
+    </body>
     </main>
 </html>
