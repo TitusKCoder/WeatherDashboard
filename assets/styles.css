@@ -1,0 +1,17 @@
+.favorable{
+    background-color: green;
+    color: honeydew;
+    border: black 3px;
+}
+
+.moderate{
+    background-color: yellow;
+    color: black;
+    border: black 3px;
+}
+
+.severe{
+    background-color: red;
+    color: black;
+    border: black 3px;
+}
