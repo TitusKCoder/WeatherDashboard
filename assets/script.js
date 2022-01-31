@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-console.log("ready");
     // Assign global variables 
 let searchBtn = $("#searchBtn");
 let searchBox = $(".SearchBox")
@@ -8,18 +7,41 @@ let textBox = $("#textBox");
 let currentDay = $("#currentForcast");
 let futureForcast = $("#futureForcast");
 let searchHistory = $("#searchHistory");
+let searchCount = 0;
+let storage = window.localStorage;
 
+let searchCityBtn = function() {
+    // checks if weather data is on the page. Will empty data if true 
+    if(currentDay.is(':empty')){
+        console.log("empty");
+    }
+    else{
+        currentDay.empty();
+    }
 
-// GIVEN a weather dashboard with form inputs
-// WHEN I search for a city
-// THEN I am presented with current and future conditions for that city and that city is added to the search history
-searchBtn.click(function() {
+    // saves search to local storage, and adds search to page as button
+    let city;
     let input = textBox.val();
-    let website = "http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=302ad37fa1a08f4e45663c5649a34fb1";
+
+    city = document.createTextNode(input);
+    searchCount++
+    storage.setItem("city" + searchCount , input);
+
+    let pastCityBtn = document.createElement("button");
+    pastCityBtn.classList.add('historyBtn');
+    let pastCityTxt = document.createElement("a");
+    pastCityTxt.appendChild(city);
+    pastCityBtn.appendChild(pastCityTxt);
+    searchHistory[0].appendChild(pastCityBtn);
+
+
+
+
+    let currentWebsite = "http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
     
     if(input){
-        console.log("fetch start");
-        fetch(website)
+        console.log("current day fetch start");
+        fetch(currentWebsite)
         .then(response => response.json())
         // For the current weather
         .then(function(result){
@@ -34,20 +56,26 @@ searchBtn.click(function() {
             let longitude = result.coord.lon;
 
             // variables needed to create elements on HTML
+            let dateEl = document.createElement("h2");
             let cityNameEl = document.createElement("h1");
             let tempratureEl = document.createElement("p");
             let humidityEl = document.createElement("p");
             let windSpeedEl = document.createElement("p");
             let logoEl = document.createElement("image");
 
-            // fetch UV index data 
-           fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,daily,alerts&appid=302ad37fa1a08f4e45663c5649a34fb1")
+            // fetch UV index data and 5 day forcast
+           fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4")
            .then(response => response.json())
            .then(function(fetch2){
+               console.log(fetch2);
+               console.log("fetch 2 worked");
             let uvIndex = fetch2.current.uvi;
 
             let uvIndexEl = document.createElement("p");
             
+            // display current weather data on HTML
+            let text;
+
             text = document.createTextNode("UV Index: " + uvIndex);
             uvIndexEl.appendChild(text);
             if(uvIndex < 2) {
@@ -59,14 +87,16 @@ searchBtn.click(function() {
             else {
                 uvIndexEl.classList.add("severe")
             }
-            currentDay[0].appendChild(uvIndexEl);
-           })
-            // display current weather data on HTML
-            let text;
-
+            
+        //    })
+            
             text = document.createTextNode(cityName);
             cityNameEl.appendChild(text);
             currentDay[0].appendChild(cityNameEl);
+
+            text= document.createTextNode(date);
+            dateEl.appendChild(text);
+            currentDay[0].appendChild(dateEl);
 
             text = document.createTextNode("Temprature: " + temprature + "°F");
             tempratureEl.appendChild(text);
@@ -80,17 +110,52 @@ searchBtn.click(function() {
             humidityEl.appendChild(text);
             currentDay[0].appendChild(humidityEl);
 
-            
-            
+            currentDay[0].appendChild(uvIndexEl);
 
+            // display future 5 days 
+            for(i=1; i < fetch2.daily.length - 2; i++) {
+                console.log("cycle: day " + i) 
+                // create forcast box and add needed elements 
+                let data;
 
+                let date = moment().add(i, 'days').format("MMMM Do YYYY");
+                let icon = fetch2.daily[i].weather[0][3];
+                let temprature= fetch2.daily[i].temp.day;
+                let windSpeed = fetch2.daily[i].wind_speed;
+                let humidity= fetch2.daily[i].humidity;
 
+                let weatherbox = document.createElement("div");
+                let dateEl = document.createElement("h2");
+                let tempratureEl = document.createElement("p");
+                let humidityEl = document.createElement("p");
+                let windSpeedEl = document.createElement("p");
 
+                data = document.createTextNode(date);
+                dateEl.appendChild(data);
+                weatherbox.appendChild(dateEl);
 
+                data = document.createTextNode("Temprature: " + temprature + "°F");
+                tempratureEl.appendChild(data);
+                weatherbox.appendChild(tempratureEl);
 
+                data = document.createTextNode("Humidity: " + humidity);
+                humidityEl.appendChild(data);
+                weatherbox.appendChild(humidityEl);
 
+                data = document.createTextNode(windSpeed);
+                windSpeedEl.appendChild(data);
+                weatherbox.appendChild(windSpeedEl);
+
+                futureForcast[0].appendChild(weatherbox);
+            }
+        })
         })
     }
-})
+}
+// GIVEN a weather dashboard with form inputs
+// WHEN I search for a city
+// THEN I am presented with current and future conditions for that city and that city is added to the search history
+searchBtn.click(searchCityBtn)
+
 
 })
