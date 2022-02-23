@@ -44,7 +44,7 @@ let searchCount = storage.length;
                 futureForcast.empty();
             }
     
-            let currentWebsite = "http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
+            let currentWebsite = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
         
         if(input){
             console.log("current day fetch start");
@@ -207,7 +207,7 @@ let searchCityBtn = function() {
             futureForcast.empty();
         }
 
-        let currentWebsite = "http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
+        let currentWebsite = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
     
     if(input){
         console.log("current day fetch start");
@@ -331,7 +331,7 @@ let searchCityBtn = function() {
 
 
 
-    let currentWebsite = "http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
+    let currentWebsite = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=5d6a70ef1c3ad02bc5b5330b210fe0f4";
     
     if(input){
         console.log("current day fetch start");
