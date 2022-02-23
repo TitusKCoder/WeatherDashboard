@@ -1,18 +1,49 @@
-# WeatherDashboard
+# Weather Dashboard
 
-GIVEN a weather dashboard with form inputs
+  This project was created by TituskCoder and open source 
 
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
+## Description
 
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index (COMPLETE)
+You can search a city of your choice to get the weather information for that city. The information given includes the current day forcast as well as the future forcast for the next 5 days. All searches are saved so you can revisit weather conditions for previous searches. Searches are also saved on refresh.
 
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe (COMPLETE)
+My main motivation for this project is 
 
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity (COMPLETE)
+## Table of Contents 
 
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+## Installation
+
+Simply clone the repo and run in your favorite terminal. Node is required
+
+## Usage
+
+type 'node index.js' in your terminal and follow the questions 
+
+
+## License
+
+The license used for this file is mit [https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/). 
+
+## Badges
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+## Features
+
+Not at this time
+
+## How to Contribute
+
+Email me 
+
+## Tests
+
+Not at this time
+
+## Contact
+If you have any questions about the project, the best email is knoxtitus@gmail.com. Also check out my github at [tituskcoder](https://github.com/tituskcoder/)
