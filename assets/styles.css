@@ -1,3 +1,13 @@
+.searchBox{
+    border: 1px solid black;
+}
+
+
+
+.jumbotron-border{
+    border: 2px solid black;
+}
+
 .favorable{
     background-color: green;
     color: honeydew;

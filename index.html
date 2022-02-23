@@ -4,36 +4,32 @@
         <title>Weather Dashboard</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="assets/styles.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="assets/script.js"></script>
-    </head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">     </head>
+        <link rel="stylesheet" type="text/css" href="assets/styles.css">
 
-    <header>
+    <header class="jumbotron jumbotron-border page-header text-center bg-primary">
         <h1>Weather Dashboard</h1>
     </header>
 
     <main>
         <body>
-            <div class="SearchBox">
-                <h1>Search for a City</h1>
-                <input id="textBox" type="text" placeholder="City Name" >
-                <button id="searchBtn">Click to Search</button>
-                <div id="searchHistory">
+            <div class="searchBox card text-center row">
+                <h1 class="card-title">Search for a City</h1>
+                <input class="row" id="textBox" type="text" placeholder="City Name" >
+                <button class="row btn-secondary" id="searchBtn">Click to Search</button>
+                <div class="row" id="searchHistory">
                     <!-- past city searches go here -->
                 </div>
             </div>
         
 
-        <div id="currentForcast"></div>
+        <div class="card" id="currentForcast"></div>
 
-        <div id="futureForcast"></div>
+        <div class="card" id="futureForcast"></div>
 
-     
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
-        <script type="text/javascript" src="assets/script.js"></script> -->
     </body>
     </main>
 </html>
